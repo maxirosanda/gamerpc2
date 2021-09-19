@@ -1,9 +1,8 @@
-import {PROGRAMS} from '../../data/programs'
 
-import { SELECTEDPROGRAM } from '../actions/programs.actions';
+import { SELECTEDPROGRAM ,GET_PROGRAMS } from '../actions/programs.actions';
 
 const INITIAL_STATE = {
-    list:PROGRAMS ,
+    list:[] ,
     selectedId: null
 }
 
@@ -15,6 +14,11 @@ const  ProgramsReducer = (state = INITIAL_STATE,action) =>{
                 ...state,
                 selectedId: action.id
               };
+              case GET_PROGRAMS:
+                return{
+                  ...state,
+                  list: action.list
+                }
 
         default:
             return state

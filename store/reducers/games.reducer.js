@@ -1,9 +1,8 @@
-import {GAMES} from '../../data/games'
 
-import { SELECTEDGAMES } from '../actions/games.actions';
+import { SELECTEDGAMES , GET_GAMES } from '../actions/games.actions';
 
 const INITIAL_STATE = {
-    list:GAMES ,
+    list:[] ,
     selectedId: null
 }
 
@@ -17,6 +16,12 @@ const  GamesReducer = (state = INITIAL_STATE,action) =>{
                 ...state,
                 selectedId: action.id
               };
+
+        case GET_GAMES:
+              return{
+                ...state,
+                list: action.list
+              }
 
         default:
             return state

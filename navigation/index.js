@@ -1,18 +1,19 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavigationContainer } from "@react-navigation/native";
-import PcGamerNavigation from './PcGamerNavigation';
-import AuthNavigator from './AuthNavigator'
+import HomeNavigator from './homeNavigator';
+
 
 const MainNavigator = () => {
   const userId = useSelector(state => state.auth.userId)
 
   return (
     <NavigationContainer>
-<PcGamerNavigation />
+        <HomeNavigator></HomeNavigator>
+
       {/*userId
         ? <PcGamerNavigation />
-      : <AuthNavigator /> */}
+      : <AuthNavigator />*/}
     </NavigationContainer>
   );
 };

@@ -72,7 +72,7 @@ const RegisterScreen = () => {
 
   return (
     <AuthScreenWrapper
-      title="REGISTRO"
+      title="Hola! Bienvanido"
       message="¿Ya tienes cuenta?"
       buttonText="Ingresar"
       buttonPath="Login"
@@ -108,7 +108,7 @@ const RegisterScreen = () => {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: COLORS.primary,
+    backgroundColor:"#FB6D01",
     marginVertical: 20,
   },
 });

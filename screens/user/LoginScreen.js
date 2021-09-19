@@ -1,5 +1,5 @@
 import React, { useCallback, useReducer } from 'react';
-import { Alert, StyleSheet } from 'react-native';
+import { Alert, StyleSheet,View } from 'react-native';
 import { Button } from 'react-native-elements';
 import { useDispatch } from 'react-redux';
 import AuthScreenWrapper from '../../components/AuthScreenWrapper';
@@ -72,7 +72,7 @@ const RegisterScreen = () => {
 
   return (
     <AuthScreenWrapper
-      title="Ingreso"
+      title="Hola! Bienvanido"
       message="¿No tienes Cuenta?"
       buttonText="Ingresar"
       buttonPath="Register"
@@ -108,9 +108,14 @@ const RegisterScreen = () => {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: COLORS.primary,
+    backgroundColor:"#FB6D01",
     marginVertical: 20,
   },
+  conteiner:{
+    width:"100%",
+    height:"100%", 
+    backgroundColor:"#FB6D01"
+    },
 });
 
 export default RegisterScreen;

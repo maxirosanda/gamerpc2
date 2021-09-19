@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { View,Text,StyleSheet,TextInput,FlatList,TouchableOpacity} from 'react-native'
 import Circle from './circle'
 import { useSelector, useDispatch } from 'react-redux';
+import { getGames } from '../store/actions/games.actions';
 import ButtonLong from './buttonLong';
 
 const Game = ({ navigation, route })=>{
+    
+    const dispatch =useDispatch()
+
     const games = useSelector(state => state.games.list)
+
+    useEffect(()=>{
+        dispatch(getGames())
+    },[])
+
     return(
         <View style={styles.conteiner}>
         <TextInput style={styles.search}  placeholder="    Buscar" />

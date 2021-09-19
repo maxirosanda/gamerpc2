@@ -1,32 +1,26 @@
 import React from 'react'
 import { View,Text,StyleSheet, TouchableOpacity,FlatList} from 'react-native'
-import CardBig from './cardBig';
-import ButtonLong from './buttonLong';
-import { useSelector} from 'react-redux';
+import ButtonLong from '../../components/buttonLong';
+import { useSelector,useDispatch} from 'react-redux';
+import { confirOrder } from '../../store/actions/orders.action';
 
-const Recommended = ({ navigation, route })=>{
+const DatosVendedor = ({ navigation, route })=>{
     const products = useSelector(state => state.products.list)
     const selectedId = useSelector(state =>state.products.selectedId)
     const product = products.find(item => item.id === selectedId);
+    const userId = useSelector(state => state.auth.userId);
+    const dispatch = useDispatch();
 
-   
+    const handlerAddItemOrder = () => {
+        dispatch(confirOrder(product,userId));
+      }
+   const handlerDrawer = () =>{
+    navigation.openDrawer();
+   }
     return(
         <View style={styles.conteiner}>
-            <View style={styles.bar}>
-                <TouchableOpacity  style={styles.barButton} ><Text  style={styles.bartext}>Juegos Compatibles</Text></TouchableOpacity>
-                <TouchableOpacity  style={styles.barButton}><Text  style={styles.bartext}>Datos Vendedor</Text></TouchableOpacity>
-                <TouchableOpacity  style={styles.active}><Text  style={styles.activetext}>Datos Tecnicos</Text></TouchableOpacity>
-                
-            </View>
-            <FlatList
-                 data={product.components}
-                 renderItem={(data) => (
-                     
-                   <CardBig component={data}/>
-                  
-                    )}
-                 keyExtractor={component => component.id}
-             />
+            <ButtonLong text={"COMPRAR"} handleSelected={handlerDrawer}></ButtonLong> 
+        <ButtonLong text={"COMPRAR"} handleSelected={handlerAddItemOrder}></ButtonLong>  
          <ButtonLong text={"CHAT CON EL VENDEDOR"} handleSelected={()=>{}}></ButtonLong>
          <ButtonLong text={"VOLVER A LA HOME"} handleSelected={()=>{}}></ButtonLong>
     </View>
@@ -70,4 +64,4 @@ const styles= StyleSheet.create({
         }
 })
 
-export default Recommended
+export default DatosVendedor

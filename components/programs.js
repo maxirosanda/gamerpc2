@@ -1,13 +1,18 @@
-import React from 'react'
+import React ,{useEffect} from 'react'
 import { View,Text,StyleSheet,TextInput,FlatList,TouchableOpacity} from 'react-native'
 import Circle from './circle'
 import ButtonLong from './buttonLong';
 import { useSelector, useDispatch } from 'react-redux';
+import { getPrograms } from '../store/actions/programs.actions';
 
 const Programs = ({ navigation, route })=>{
     
     const programs = useSelector(state => state.programs.list)
+    const dispatch =useDispatch()
 
+    useEffect(()=>{
+        dispatch(getPrograms())
+    },[])
     return(
         <View style={styles.conteiner}>
         <TextInput style={styles.search}  placeholder="    Buscar" />

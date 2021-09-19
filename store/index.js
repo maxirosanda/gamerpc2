@@ -5,6 +5,7 @@ import GamesReducer from "./reducers/games.reducer";
 import ProgramsReducer from "./reducers/programs.reducer";
 import ComponentsReducer from "./reducers/components.reducer";
 import AuthReducer from './reducers/auth.reducer'
+import OrdersReducer from "./reducers/orders.reducer";
 
 const RootReducer = combineReducers({
     products: ProductReducer,
@@ -12,7 +13,7 @@ const RootReducer = combineReducers({
     programs:ProgramsReducer,
     components:ComponentsReducer,
     auth: AuthReducer,
-
+    orders:OrdersReducer
 })
 
 export default createStore(RootReducer, applyMiddleware(thunk));

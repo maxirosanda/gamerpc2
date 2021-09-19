@@ -13,12 +13,7 @@ const AuthScreenWrapper = ({ children, title, message, buttonText, buttonPath })
       <View style={styles.container}>
         <Text style={styles.title}>{title}</Text>
         {children}
-        <View style={styles.prompt}>
-          <Text style={styles.promptMessage}>{message}</Text>
-          <TouchableOpacity onPress={() => navigation.navigate(buttonPath)}>
-            <Text style={styles.promptButton}>{buttonText}</Text>
-          </TouchableOpacity>
-        </View>
+   
       </View>
     </KeyboardAvoidingView>
   );
@@ -26,34 +21,28 @@ const AuthScreenWrapper = ({ children, title, message, buttonText, buttonPath })
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginHorizontal:15,
+    marginVertical:40
   },
   title: {
     fontSize: 24,
-    marginBottom: 18,
+    marginVertical: 55,
     textAlign: 'center',
+    
   },
-  container: {
-    width: '80%',
-    maxWidth: 400,
-    padding: 12,
-    margin: 12,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    borderRadius: 10,
-  },
+
   prompt: {
     alignItems: 'center',
+    marginTop:14
   },
   promptMessage: {
     fontSize: 16,
-    color: '#333',
+    color: '#FB6D0',
   },
   promptButton: {
     fontSize: 16,
-    color: COLORS.primary,
+    color:"#FB6D01" ,
+    fontWeight:"800"
   },
 });
 

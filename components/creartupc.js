@@ -1,8 +1,8 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { View,Text,StyleSheet,TouchableOpacity,FlatList } from 'react-native'
 import { useSelector, useDispatch } from 'react-redux';
 import ButtonLong from './buttonLong';
-import { selectedProduct } from '../store/actions/products.actions';
+import { getProducts, selectedProduct } from '../store/actions/products.actions';
 import Cuadrado from './cuadrado';
 import { AntDesign } from '@expo/vector-icons'; 
 import Rectangulo from './rectangulo'
@@ -11,16 +11,17 @@ const CrearPc = ({ navigation, route })=>{
 
   const dispatch = useDispatch();
   const products = useSelector(state => state.products.list)
-   
+
+  useEffect(()=>{
+      dispatch(getProducts())
+  },[])
     const handleSelectedProduct = (id,title) => {
       dispatch(selectedProduct(id));
 
-        navigation.navigate('Recommended', {
-          title:title
-        });
+        navigation.navigate('Recommended', { title:title });
       }
       const handleSelectedGame = () => {
-        navigation.navigate('Game');
+        navigation.navigate('Games');
       }
       const handleSelectedPrograms = () => {
         navigation.navigate('Programs');

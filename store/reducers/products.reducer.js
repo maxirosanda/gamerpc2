@@ -1,9 +1,8 @@
-import {PRODUCTS} from '../../data/products'
 
-import { SELECTEDPRODUCT } from '../actions/products.actions';
+import { SELECTEDPRODUCT,GET_PRODUCTS } from '../actions/products.actions';
 
 const INITIAL_STATE = {
-    list:PRODUCTS ,
+    list:[] ,
     selectedId: null
 }
 
@@ -15,6 +14,12 @@ const  ProductReducer = (state = INITIAL_STATE,action) =>{
                 ...state,
                 selectedId: action.id
               };
+              case GET_PRODUCTS:
+                return{
+                  ...state,
+                  list: action.list
+                }
+        
 
         default:
             return state
