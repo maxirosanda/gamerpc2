@@ -1,21 +1,31 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { View,Text,StyleSheet, TouchableOpacity,FlatList} from 'react-native'
-import CardBig from '../../components/cardBig';
-import ButtonLong from '../../components/buttonLong';
-import { useSelector} from 'react-redux';
-import ButtonsBotton from '../../components/buttonsbotton';
+import CardBig from './cardBig';
+import { useSelector ,useDispatch} from 'react-redux';
+import { getOrdersUser } from '../store/actions/orders.action';
 
-const GameCompatibility = ({ navigation, route })=>{
-    const products = useSelector(state => state.products.list)
-    const selectedId = useSelector(state =>state.products.selectedId)
-    const product = products.find(item => item.id === selectedId);
-    const userId = useSelector(state => state.auth.userId);
-   
+const OrdersUser = ()=>{
+    
+    const dispatch = useDispatch();
+  
+    useEffect(()=>{
+        dispatch(getOrdersUser())
+    },[])
+    
+    const orders = useSelector(state => state.orders.list)
+    console.log(orders)
     return(
         <View style={styles.conteiner}>
 
-            
-<ButtonsBotton product={product} userId={userId} ></ButtonsBotton>
+            <FlatList
+                 data={orders}
+                 renderItem={(data) => (
+                    
+                   <CardBig component={data.items.components}/>
+                  
+                    )}
+                 keyExtractor={component => component.id}
+             />
     </View>
     )
 }
@@ -57,4 +67,4 @@ const styles= StyleSheet.create({
         }
 })
 
-export default GameCompatibility
+export default OrdersUser

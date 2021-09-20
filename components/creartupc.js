@@ -18,16 +18,16 @@ const CrearPc = ({ navigation, route })=>{
     const handleSelectedProduct = (id,title) => {
       dispatch(selectedProduct(id));
 
-        navigation.navigate('Recommended', { title:title });
+        navigation.navigate('RecommendedHome', { title:title });
       }
       const handleSelectedGame = () => {
-        navigation.navigate('Games');
+        navigation.navigate('GamesHome');
       }
       const handleSelectedPrograms = () => {
-        navigation.navigate('Programs');
+        navigation.navigate('ProgramsHome');
       }
       const handleSelectedBuildPc = () => {
-        navigation.navigate('BuildPc');
+        navigation.navigate('BuildPcHome');
       }
 
     

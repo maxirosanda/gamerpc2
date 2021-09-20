@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   },
   promptMessage: {
     fontSize: 16,
-    color: '#FB6D0',
+    color: '#FB6D01',
   },
   promptButton: {
     fontSize: 16,

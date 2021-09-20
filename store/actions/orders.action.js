@@ -4,6 +4,7 @@ export const SELECTEDORDER = 'SELECTEDORDER';
 export const GET_ORDERS = 'GET_ORDERS'
 */
 export const CONFIRM_ORDER = 'CONFIRM_ORDER'
+export const GET_ORDERSUSER = 'GET_ORDERSUSER'
 
 /*
 export const selectedOrder = (id) => ({
@@ -22,6 +23,25 @@ export const getOrders = () => {
       } )
       const result = await response.json()
       dispatch({type:GET_ORDERS,list:result})
+
+    }catch(error){
+      console.log(error.message)
+    }
+  }
+}
+
+export const getOrdersUser = () => {
+  return async dispatch =>{
+    try {
+      const response = await fetch( `${URL_API}/orders.json`,{
+        method:"GET",
+        headers:{
+          'Content-Type': 'application/json'
+        }
+      } )
+      const result = await response.json()
+      //const orders = result.find(item => item.user === userId);
+      dispatch({type:GET_ORDERSUSER,list:result})
 
     }catch(error){
       console.log(error.message)

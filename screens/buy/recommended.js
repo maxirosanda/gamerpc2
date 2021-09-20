@@ -3,12 +3,13 @@ import { View,Text,StyleSheet, TouchableOpacity,FlatList} from 'react-native'
 import CardBig from '../../components/cardBig';
 import ButtonLong from '../../components/buttonLong';
 import { useSelector} from 'react-redux';
+import ButtonsBotton from '../../components/buttonsbotton';
 
 const Recommended = ({ navigation, route })=>{
     const products = useSelector(state => state.products.list)
     const selectedId = useSelector(state =>state.products.selectedId)
     const product = products.find(item => item.id === selectedId);
-
+    const userId = useSelector(state => state.auth.userId);
    
     return(
         <View style={styles.conteiner}>
@@ -22,8 +23,7 @@ const Recommended = ({ navigation, route })=>{
                     )}
                  keyExtractor={component => component.id}
              />
-         <ButtonLong text={"CHAT CON EL VENDEDOR"} handleSelected={()=>{}}></ButtonLong>
-         <ButtonLong text={"VOLVER A LA HOME"} handleSelected={()=>{}}></ButtonLong>
+       <ButtonsBotton product={product} userId={userId} ></ButtonsBotton>
     </View>
     )
 }

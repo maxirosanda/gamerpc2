@@ -1,7 +1,6 @@
 import React from 'react'
 import { View,Text,StyleSheet,TextInput,FlatList,TouchableOpacity} from 'react-native'
 import ButtonLong from '../../components/buttonLong'
-import Rectangulo from '../../components/rectangulo'
 
 
 const Inicio = ({ navigation, route })=>{
