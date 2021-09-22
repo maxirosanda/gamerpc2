@@ -11,6 +11,7 @@ const ButtonsBotton = ({product,userId})=>{
     const handlerAddItemOrder = () => {
         dispatch(confirOrder(product,userId));
       }
+      
     return(
         <View>
                 <ButtonLong text={"COMPRAR"} handleSelected={handlerAddItemOrder}></ButtonLong>  

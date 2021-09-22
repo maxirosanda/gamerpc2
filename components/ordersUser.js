@@ -1,31 +1,42 @@
 import React,{useEffect} from 'react'
 import { View,Text,StyleSheet, TouchableOpacity,FlatList} from 'react-native'
-import CardBig from './cardBig';
 import { useSelector ,useDispatch} from 'react-redux';
 import { getOrdersUser } from '../store/actions/orders.action';
+import { selectedOrder } from '../store/actions/orders.action';
 
-const OrdersUser = ()=>{
+const OrdersUser = ({ navigation, route })=>{
     
     const dispatch = useDispatch();
   
     useEffect(()=>{
         dispatch(getOrdersUser())
     },[])
+
+    const handleSelectedOrder = (date) => {
+        dispatch(selectedOrder(date))
+        navigation.navigate('OrderUser');
+      }
+    
     
     const orders = useSelector(state => state.orders.list)
-    console.log(orders)
+    
     return(
         <View style={styles.conteiner}>
-
-            <FlatList
-                 data={orders}
-                 renderItem={(data) => (
-                    
-                   <CardBig component={data.items.components}/>
-                  
-                    )}
-                 keyExtractor={component => component.id}
-             />
+             {
+             orders !== null ? 
+             <FlatList
+                data={Object.values(orders)}
+                renderItem={(data) => (
+                <View>
+                    <TouchableOpacity onPress={()=> handleSelectedOrder(data.item.date)}> 
+                        <Text>Compra N: {data.item.date}</Text>
+                    </TouchableOpacity>
+                 </View>
+           )}
+                keyExtractor={order =>order.date}
+    />
+      : <Text>No hay ordenes</Text> }
+    
     </View>
     )
 }

@@ -9,33 +9,7 @@ import Input from '../../components/Input';
 
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
 
-const formReducer = (state, action) => {
-  if (action.type === FORM_INPUT_UPDATE) {
-    const inputValues = {
-      ...state.inputValues,
-      [action.input]: action.value,
-    }
-    const inputValidities = {
-      ...state.inputValidities,
-      [action.input]: action.isValid,
-    }
-    let formIsValid = true;
-
-    for (const key in inputValidities) {
-      formIsValid = formIsValid && inputValidities[key];
-    }
-
-    return {
-      formIsValid,
-      inputValues,
-      inputValidities,
-    }
-  }
-
-  return state;
-};
-
-const RegisterScreen = () => {
+const LoginScreen = () => {
   const dispatch = useDispatch();
   const [formState, formDispatch] = useReducer(formReducer, {
     inputValues: {
@@ -49,9 +23,9 @@ const RegisterScreen = () => {
     formIsValid: false,
   });
 
-  const handleSignUp = () => {
+  const handleLogin = () => {
     if (formState.formIsValid) {
-      dispatch(signup(formState.inputValues.email, formState.inputValues.password));
+      dispatch(login(formState.inputValues.email, formState.inputValues.password));
     } else {
       Alert.alert(
         'Formulario inválido',
@@ -99,7 +73,7 @@ const RegisterScreen = () => {
       />
       <Button
         title="INGRESAR"
-        onPress={handleSignUp}
+        onPress={handleLogin}
         buttonStyle={styles.button}
       />
     </AuthScreenWrapper>
@@ -118,4 +92,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default RegisterScreen;
+export default LoginScreen;

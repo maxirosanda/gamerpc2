@@ -14,7 +14,7 @@ export const COMPONENTS = [
     },
     {
         id: '45433a0f-3da1-471f-bd96-145571e29d72',
-        title: 'Agregar RAM',
+        title: 'Agregar Memoria RAM',
 
       },
       {

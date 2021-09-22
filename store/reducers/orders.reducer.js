@@ -1,5 +1,5 @@
 
-import { SELECTEDORDER,CONFIRM_ORDER,GET_ORDERS,GET_ORDERSUSER } from '../actions/orders.action';
+import { SELECTEDORDER,CONFIRM_ORDER,GET_ORDERS,GET_ORDERSUSER,GET_ORDER, DELETE_ORDER } from '../actions/orders.action';
 
 const INITIAL_STATE = {
     list:[] ,
@@ -26,6 +26,23 @@ const  OrdersReducer = (state = INITIAL_STATE,action) =>{
                 ...state,
                 list:action.list
             }
+
+            case  GET_ORDER:
+                return {
+                    ...state,
+                    list:action.list
+                }
+            case  SELECTEDORDER :
+                return{
+                    ...state,
+                selectedId: action.id
+                }
+            case DELETE_ORDER :
+                return {
+                    ...state,
+                    selectedId:null
+                }
+           
 
         default:
             return state
