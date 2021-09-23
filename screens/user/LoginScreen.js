@@ -4,10 +4,9 @@ import { Button } from 'react-native-elements';
 import { useDispatch } from 'react-redux';
 import AuthScreenWrapper from '../../components/AuthScreenWrapper';
 import { COLORS } from '../../constants/colors';
-import { signup } from '../../store/actions/auth.action';
+import { login } from '../../store/actions/auth.action';
 import Input from '../../components/Input';
-
-const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
+import { formReducer, FORM_INPUT_UPDATE } from './formReducer';
 
 const LoginScreen = () => {
   const dispatch = useDispatch();

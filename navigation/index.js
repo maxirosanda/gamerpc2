@@ -9,11 +9,10 @@ const MainNavigator = () => {
 
   return (
     <NavigationContainer>
-       <HomeNavigator/>
 
-      {/*userId
+      {userId
         ? <HomeNavigator/>
-      : <AuthNavigator/> */}
+      : <AuthNavigator/> }
     </NavigationContainer>
   );
 };

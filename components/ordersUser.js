@@ -5,11 +5,11 @@ import { getOrdersUser } from '../store/actions/orders.action';
 import { selectedOrder } from '../store/actions/orders.action';
 
 const OrdersUser = ({ navigation, route })=>{
-    
+    const userId = useSelector(state => state.auth.userId)
     const dispatch = useDispatch();
-  
+    
     useEffect(()=>{
-        dispatch(getOrdersUser())
+        dispatch(getOrdersUser(userId))
     },[])
 
     const handleSelectedOrder = (date) => {

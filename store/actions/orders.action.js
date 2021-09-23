@@ -31,7 +31,7 @@ export const getOrders = () => {
   }
 }
 
-export const getOrdersUser = () => {
+export const getOrdersUser = (userId) => {
   return async dispatch =>{
     try {
       const response = await fetch( `${URL_API}/orders.json`,{
@@ -41,8 +41,8 @@ export const getOrdersUser = () => {
         }
       } )
       const result = await response.json()
-      //const orders = result.find(item => item.user === userId);
-      dispatch({type:GET_ORDERSUSER,list:result})
+      const orders = Object.values(result).filter(item => item.user ===userId);
+      dispatch({type:GET_ORDERSUSER,list:orders})
 
     }catch(error){
       console.log(error.message)

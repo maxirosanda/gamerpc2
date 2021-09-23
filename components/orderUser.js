@@ -23,7 +23,7 @@ const OrderUser = ({navigation})=>{
       }
 
     const order = useSelector(state => state.orders.list)
-    console.log(order)
+ 
     return(
         <View style={styles.conteiner}>
        <ButtonLong text={"Eliminar Orden"} handleSelected={()=> handleDeleteOrder(orderid)}/>      
