@@ -1,4 +1,4 @@
-import { URL_AUTH_API, URL_LOGIN_API } from '../../constants/database';
+import {URL_AUTH_API,URL_LOGIN_API} from "@env"
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const SIGNUP = 'SIGNUP';

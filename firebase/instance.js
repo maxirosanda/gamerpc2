@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import {URL_API} from "@env"
 export default axios.create({
-    baseURL: "https://gamerpc-693de-default-rtdb.firebaseio.com"
+    baseURL:URL_API
 })

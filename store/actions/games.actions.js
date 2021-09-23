@@ -1,4 +1,4 @@
-import { URL_API } from "../../constants/database";
+import {URL_API} from "@env"
 export const SELECTEDGAME = 'SELECTEDGAME';
 export const GET_GAMES = 'GET_GAMES'
 
