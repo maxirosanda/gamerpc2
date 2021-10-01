@@ -1,10 +1,10 @@
 import React,{useEffect} from 'react'
 import { View,Text,StyleSheet, TouchableOpacity,FlatList} from 'react-native'
-import CardBig from './cardBig';
+import CardBig from '../../components/cardBig';
 import { useSelector,useDispatch} from 'react-redux';
-import { getOrderUser } from '../store/actions/orders.action';
-import ButtonLong from './buttonLong';
-import { deleteOrder } from '../store/actions/orders.action';
+import { getOrderUser } from '../../store/actions/orders.action';
+import ButtonLong from '../../components/buttonLong';
+import { deleteOrder } from '../../store/actions/orders.action';
 
 const OrderUser = ({navigation})=>{
     const dispatch = useDispatch();

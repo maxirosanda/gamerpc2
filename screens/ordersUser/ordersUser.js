@@ -1,16 +1,16 @@
 import React,{useEffect} from 'react'
 import { View,Text,StyleSheet, TouchableOpacity,FlatList} from 'react-native'
 import { useSelector ,useDispatch} from 'react-redux';
-import { getOrdersUser } from '../store/actions/orders.action';
-import { selectedOrder } from '../store/actions/orders.action';
+import { getOrdersUser } from '../../store/actions/orders.action';
+import { selectedOrder } from '../../store/actions/orders.action';
 
 const OrdersUser = ({ navigation, route })=>{
     const userId = useSelector(state => state.auth.userId)
     const dispatch = useDispatch();
-    
+    const orders = useSelector(state => state.orders.list)
     useEffect(()=>{
         dispatch(getOrdersUser(userId))
-    },[])
+    },[orders])
 
     const handleSelectedOrder = (date) => {
         dispatch(selectedOrder(date))
@@ -18,7 +18,7 @@ const OrdersUser = ({ navigation, route })=>{
       }
     
     
-    const orders = useSelector(state => state.orders.list)
+    
     
     return(
         <View style={styles.conteiner}>

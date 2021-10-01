@@ -1,7 +1,7 @@
 import React from 'react'
 import { View,Text,StyleSheet,FlatList} from 'react-native'
 import { useSelector, useDispatch } from 'react-redux';
-import Card from './card'
+import Card from '../../components/card'
 
 const BuildPc = ({ navigation, route })=>{
     const components = useSelector(state => state.components.list)

@@ -1,7 +1,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import OrderUser from '../components/orderUser'
-import OrdersUser from '../components/ordersUser';
+import OrderUser from '../screens/ordersUser/orderUser'
+import OrdersUser from '../screens/ordersUser/ordersUser';
 
 const Stack = createNativeStackNavigator()
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Programs from "../components/programs"
+import Programs from "../screens/principales/programs"
 
 
 

@@ -1,9 +1,10 @@
 import React ,{useEffect} from 'react'
 import { View,Text,StyleSheet,TextInput,FlatList,TouchableOpacity} from 'react-native'
-import Circle from './circle'
-import ButtonLong from './buttonLong';
+import Circle from '../../components/circle'
+import ButtonLong from '../../components/buttonLong';
 import { useSelector, useDispatch } from 'react-redux';
-import { getPrograms } from '../store/actions/programs.actions';
+import { getPrograms } from '../../store/actions/programs.actions';
+import Search from '../../components/search';
 
 const Programs = ({ navigation, route })=>{
     
@@ -15,7 +16,7 @@ const Programs = ({ navigation, route })=>{
     },[])
     return(
         <View style={styles.conteiner}>
-        <TextInput style={styles.search}  placeholder="    Buscar" />
+       <Search text="     Buscar"/>
             <FlatList style={styles.circles}  numColumns={3}  data={programs} keyExtractor={item => item.id} renderItem={(data) => (
                 < Circle item={data.item} />  
             )}/> 
@@ -30,13 +31,6 @@ const styles= StyleSheet.create({
         width:"100%",
         height:"100%"
         },
-    search:{
-        height:50,
-        margin:15,
-        borderWidth:1,
-        borderRadius:5,
-        borderColor:"#000000"
-    },
     circles:{
     height:100,
     alignContent:"center"

@@ -2,7 +2,7 @@ import React from 'react'
 import { View,Text,StyleSheet, TouchableOpacity,FlatList} from 'react-native'
 import { useSelector} from 'react-redux';
 import ButtonsBotton from '../../components/buttonsbotton';
-import Avatar2 from './avatar';
+import Avatar2 from '../../components/avatar';
 
 const DatosVendedor = ({ navigation, route })=>{
     const products = useSelector(state => state.products.list)

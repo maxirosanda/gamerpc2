@@ -1,6 +1,6 @@
 import React from 'react';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import BuildPc  from '../components/buildpc';
+import BuildPc  from '../screens/principales/buildpc';
 
 
 

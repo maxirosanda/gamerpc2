@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import { View,Text,StyleSheet,TextInput,FlatList,TouchableOpacity} from 'react-native'
-import Circle from './circle'
+import Circle from '../../components/circle'
 import { useSelector, useDispatch } from 'react-redux';
-import { getGames } from '../store/actions/games.actions';
-import ButtonLong from './buttonLong';
+import { getGames } from '../../store/actions/games.actions';
+import ButtonLong from '../../components/buttonLong';
+import Search from '../../components/search';
 
 const Game = ({ navigation, route })=>{
     
@@ -17,7 +18,7 @@ const Game = ({ navigation, route })=>{
 
     return(
         <View style={styles.conteiner}>
-        <TextInput style={styles.search}  placeholder="    Buscar" />
+       <Search text="    Buscar"/>
             <FlatList style={styles.circles} numColumns={3}  data={games} keyExtractor={item => item.id} renderItem={(data) => (
                 < Circle item={data.item} />  
             )}/> 
@@ -32,13 +33,6 @@ const styles= StyleSheet.create({
         width:"100%",
         height:"100%"
         },
-    search:{
-        height:50,
-        margin:15,
-        borderWidth:1,
-        borderRadius:5,
-        borderColor:"#000000"
-    },
     circles:{
     height:100,
     },

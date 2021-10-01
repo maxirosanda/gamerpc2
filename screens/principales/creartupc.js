@@ -1,11 +1,11 @@
 import React,{useEffect} from 'react'
 import { View,Text,StyleSheet,TouchableOpacity,FlatList } from 'react-native'
 import { useSelector, useDispatch } from 'react-redux';
-import ButtonLong from './buttonLong';
-import { getProducts, selectedProduct } from '../store/actions/products.actions';
-import Cuadrado from './cuadrado';
+import ButtonLong from '../../components/buttonLong';
+import { getProducts, selectedProduct } from '../../store/actions/products.actions';
+import Cuadrado from '../../components/cuadrado';
 import { AntDesign } from '@expo/vector-icons'; 
-import Rectangulo from './rectangulo'
+import Rectangulo from '../../components/rectangulo'
 
 const CrearPc = ({ navigation, route })=>{
 
