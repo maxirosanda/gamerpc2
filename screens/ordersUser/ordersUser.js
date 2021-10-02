@@ -12,8 +12,8 @@ const OrdersUser = ({ navigation, route })=>{
         dispatch(getOrdersUser(userId))
     },[orders])
 
-    const handleSelectedOrder = (date) => {
-        dispatch(selectedOrder(date))
+    const handleSelectedOrder = (_id) => {
+        dispatch(selectedOrder(_id))
         navigation.navigate('OrderUser');
       }
     
@@ -28,12 +28,12 @@ const OrdersUser = ({ navigation, route })=>{
                 data={Object.values(orders)}
                 renderItem={(data) => (
                 <View>
-                    <TouchableOpacity onPress={()=> handleSelectedOrder(data.item.date)}> 
-                        <Text>Compra N: {data.item.date}</Text>
+                    <TouchableOpacity onPress={()=> handleSelectedOrder(data.item._id)}> 
+                        <Text>Compra N: {data.item._id}</Text>
                     </TouchableOpacity>
                  </View>
            )}
-                keyExtractor={order =>order.date}
+                keyExtractor={order =>order._id}
     />
       : <Text>No hay ordenes</Text> }
     

@@ -9,37 +9,40 @@ import { deleteOrder } from '../../store/actions/orders.action';
 const OrderUser = ({navigation})=>{
     const dispatch = useDispatch();
     const orderid = useSelector(state => state.orders.selectedId)
-
+    const order = useSelector(state => state.orders.list)
   
     useEffect(()=>{
         dispatch(getOrderUser(orderid))
-       
+        console.log(order)
     },[])
 
     
-    const handleDeleteOrder = (id) => {
-        dispatch(deleteOrder(id))
+    const handleDeleteOrder = (_id) => {
+        dispatch(deleteOrder(_id))
         navigation.navigate('OrdersUser');
       }
 
-    const order = useSelector(state => state.orders.list)
- 
+    
+    
+
+
     return(
         <View style={styles.conteiner}>
        <ButtonLong text={"Eliminar Orden"} handleSelected={()=> handleDeleteOrder(orderid)}/>      
-             <FlatList
+       <FlatList
 
-data={Object.values(order)[0].item.components}
-renderItem={(data) =>{
- return (
-       <View>
-     <CardBig component={data}/>
-     </View>
-       ) 
-} }
-keyExtractor={component => component.date}
+            data={order[0].item.components}
+            renderItem={(data) =>{
+    
+        return (
+            <View>
+            <CardBig component={data}/>
+            </View>
+            ) 
+        } }
+        keyExtractor={data => data.date}
 
-/>
+        />  
 
     </View>
     )

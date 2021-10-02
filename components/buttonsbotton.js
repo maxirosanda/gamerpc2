@@ -21,23 +21,6 @@ const ButtonsBotton = ({product,userId})=>{
     )
 }
 
-const styles= StyleSheet.create({
-    circle:{
-        backgroundColor:"#FB6D01",
-        flexGrow:1,
-        flexDirection:"row",
-        width:100,
-        maxWidth:100,
-        height:100,
-        margin:8,
-        borderRadius:50,
-        alignContent:"center",
-        },
-        text:{
-            textAlign:"center",
-            textAlignVertical:"center",
-            marginBottom:8,
-        }
-})
+
 
 export default ButtonsBotton

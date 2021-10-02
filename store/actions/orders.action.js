@@ -5,12 +5,12 @@ export const GET_ORDERS = 'GET_ORDERS'
 
 export const CONFIRM_ORDER = 'CONFIRM_ORDER'
 export const GET_ORDERSUSER = 'GET_ORDERSUSER'
-export const GET_ORDER = 'GET_ORDER'
+export const GET_ORDERUSER = 'GET_ORDER'
 export const DELETE_ORDER = 'DELETE_ORDER'
 
-export const selectedOrder = (id) => ({
+export const selectedOrder = (_id) => ({
   type: SELECTEDORDER,
-  id,
+  _id,
 });
 
 export const getOrders = () => {
@@ -41,8 +41,9 @@ export const getOrdersUser = (userId) => {
         }
       } )
       const result = await response.json()
-      const orders = Object.values(result).filter(item => item.user ===userId);
-      dispatch({type:GET_ORDERSUSER,list:orders})
+      const orders = Object.keys(result).map(key => ({ ...result[key], _id: key }))
+      const ordersUser =orders.filter(item => item.user ===userId);
+      dispatch({type:GET_ORDERSUSER,list:ordersUser})
 
     }catch(error){
       console.log(error.message)
@@ -61,9 +62,10 @@ export const getOrderUser = (_id) => {
         }
       } )
       const result = await response.json()
-      const order = Object.keys(result).map(key => ({ ...result[key], _id: key }))
+      
+      //const order = Object.keys(result).map(key => ({ ...result[key], _id: key }))
 
-      dispatch({type:GET_ORDER,list:order})
+      dispatch({type:GET_ORDERUSER,list:[result]})
     }catch(error){
       console.log(error.message)
     }
