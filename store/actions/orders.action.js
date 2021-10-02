@@ -51,17 +51,18 @@ export const getOrdersUser = (userId) => {
 }
 
 
-export const getOrderUser = (date) => {
+export const getOrderUser = (_id) => {
   return async dispatch =>{
     try {
-      const response = await fetch( `${URL_API}/orders.json`,{
+      const response = await fetch( `${URL_API}/orders/${_id}.json`,{
         method:"GET",
         headers:{
           'Content-Type': 'application/json'
         }
       } )
       const result = await response.json()
-      const order = Object.values(result).filter(item => item.date === date);
+      const order = Object.keys(result).map(key => ({ ...result[key], _id: key }))
+
       dispatch({type:GET_ORDER,list:order})
     }catch(error){
       console.log(error.message)
@@ -109,14 +110,14 @@ export const confirOrder = (payload, userId) => {
 
   
 
-  export const deleteOrder = (id) => {
+  export const deleteOrder = (_id) => {
     return async dispatch => {
       try {
         dispatch({
           type: DELETE_ORDER,
           status: 'loading',
         });
-        const response = await fetch(`${URL_API}/orders.json`, {
+        const response = await fetch(`${URL_API}/orders/${_id}.json`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',

@@ -7,10 +7,10 @@ const Stack = createNativeStackNavigator()
 
 const OrdersNavigator = () => (
 
-    <Stack.Navigator>
-        <Stack.Screen name="OrdersUser" component={OrdersUser} options={{title: "Ordenes"}}  />
+    <Stack.Navigator >
+        <Stack.Screen name="OrdersUser" component={OrdersUser} options={{title: "Ordenes" ,headerShown:false}}  />
        <Stack.Screen name="OrderUser" component={OrderUser} options={{title: "Orden"}}  />
-    </Stack.Navigator>
+    </Stack.Navigator>  
 
 );
 
