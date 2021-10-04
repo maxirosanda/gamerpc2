@@ -48,3 +48,19 @@ export const fetchMispcs = () => {
     })
   })
 }
+
+
+export const deleteAddress = (
+  id
+) => {
+  return new Promise((resolve, reject) => {
+    db.transaction((tx) => {
+      tx.executeSql(
+        'DELETE FROM mispcs WHERE id = ?',
+        [id],
+        (_, result) => resolve(result),
+        (_, error) => reject(error),
+      )
+    })
+  })
+}

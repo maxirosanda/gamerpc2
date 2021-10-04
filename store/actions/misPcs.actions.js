@@ -1,8 +1,9 @@
 import * as FileSystem from 'expo-file-system';
-import { insertMiPc, fetchMispcs } from '../../db';
+import { insertMiPc, fetchMispcs,deleteAddress } from '../../db';
 
 export const ADD_MIPC = 'ADD_MIPC';
 export const LOAD_MISPCS = 'LOAD_MISPCS';
+export const DELETE_MISPCS = 'DELETE_MISPCS'
 
 export const addmiPc = (title, image,description) => {
     return async dispatch => {
@@ -44,6 +45,20 @@ export const loadMisPcs = () => {
         try {
             const result = await fetchMispcs();
             dispatch({ type:LOAD_MISPCS, misPcs: result.rows._array })
+        } catch (error) {
+            throw error;
+        }
+    }
+}
+
+
+export const deletePC = (id) => {
+    return async dispatch => {
+        try {
+            
+            await deleteAddress(id);
+            dispatch({ type:DELETE_MISPCS})
+           
         } catch (error) {
             throw error;
         }

@@ -15,7 +15,7 @@ const NewMiPc = ({ navigation }) => {
     const handleDescriptionChange = text => setDescription(text);
     const handleSave = () => {
         dispatch(addmiPc(title, image,description));
-       //navigation.navigate('Direcciones');
+       navigation.navigate('Mispcs');
     }
 
     const handlePickImage = (uri) => {

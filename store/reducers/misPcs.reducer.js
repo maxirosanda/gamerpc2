@@ -1,4 +1,4 @@
-import { ADD_MIPC, LOAD_MISPCS } from '../actions/misPcs.actions';
+import { ADD_MIPC, LOAD_MISPCS,DELETE_MISPCS } from '../actions/misPcs.actions';
 import MiPc from '../../models/MiPc';
 
 const initialState = {
@@ -27,6 +27,10 @@ const MisPcsReducer = (state = initialState, action) => {
                     item.image,
                     item.description
                 ))
+            }
+        case DELETE_MISPCS :
+            return {
+                ...state,
             }
         default:
             return state;
