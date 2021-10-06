@@ -4,12 +4,15 @@ import { View, Text, Button, TextInput, ScrollView, StyleSheet } from 'react-nat
 import { COLORS } from '../../constants/colors'
 import { addmiPc } from '../../store/actions/misPcs.actions';
 import ImageSelector from '../../components/ImageSelector';
+import LocationSelector from '../../components/LocationSelector';
+
 
 const NewMiPc = ({ navigation }) => {
     const dispatch = useDispatch();
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [image, setImage] = useState();
+    const [location, setLocation] = useState();
 
     const handleTitleChange = text => setTitle(text);
     const handleDescriptionChange = text => setDescription(text);
@@ -20,6 +23,10 @@ const NewMiPc = ({ navigation }) => {
 
     const handlePickImage = (uri) => {
         setImage(uri);
+    }
+
+    const handlePickLocation = (loc) => {
+        setLocation(loc);
     }
 
     return (
@@ -39,7 +46,7 @@ const NewMiPc = ({ navigation }) => {
                 />
 
                 <ImageSelector onImage={handlePickImage} />
-
+                <LocationSelector onLocation={handlePickLocation} />
                 <Button
                     title="Guardar PC"
                     color={COLORS.primary}
